@@ -1,16 +1,30 @@
+import Box from '@mui/material/Box';
+import NavBar from "@/app/(dashboard)/components/NavBar";
+import SideBar from "@/app/(dashboard)/components/Sidebar";
+import Toolbar from '@mui/material/Toolbar';
+
+
 export default function DashboardLayout({
                                             children,
                                         }: {
     children: React.ReactNode
 }) {
     return (
-        <html lang="en">
-        <body>
-        <div>
-            This is dashboard Layout
-        </div>
-        <main>{children}</main>
-        </body>
-        </html>
+        <Box sx={{
+            height: '100vh',
+        }}>
+            <NavBar/>
+            <Toolbar/>
+            <Box sx={{
+                display: 'flex',
+                flexDirection: 'row',
+            }}>
+                <SideBar />
+                <div>
+                    {children}
+                </div>
+
+            </Box>
+        </Box>
     )
 }
