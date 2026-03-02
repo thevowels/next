@@ -6,7 +6,8 @@ import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Stack from '@mui/material/Stack';
-
+import Button from '@mui/material/Button';
+import Link from 'next/link';
 const columns: GridColDef<User>[] = [
     {
         field: '_id',
@@ -57,8 +58,16 @@ const columns: GridColDef<User>[] = [
         headerAlign: 'center',
         align: 'center',
         renderCell: (param) => {
-           return (
-               <Stack direction={"row"} spacing={1}>
+            return (
+               <Stack direction={"row"} spacing={1} mt={1}>
+                    <Button
+                        component={Link}
+                        variant={"contained"}
+                        href={`/users/${param.row._id}`}
+                        size={"small"}
+                        >
+                        Show
+                    </Button>
                    <IconButton
                        size={"small"}
                        color={"primary"}
@@ -80,6 +89,12 @@ const columns: GridColDef<User>[] = [
 
 export default function UserDataGrid({users}:{users:User[]}) {
 
+    if(!users.length)
+        return (
+            <div>
+                No Users Found
+            </div>
+        )
     return (
         <Box sx={{ height: 'full',flex: 1, mx: 'auto'}}>
             <DataGrid
