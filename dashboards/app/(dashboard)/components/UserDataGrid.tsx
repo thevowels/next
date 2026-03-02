@@ -2,12 +2,16 @@
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import {User} from "@/lib/models/User";
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Stack from '@mui/material/Stack';
 
 const columns: GridColDef<User>[] = [
     {
         field: '_id',
         headerName: 'ID',
-        // width: 90
+        width: 90
     },
     {
         field: 'name',
@@ -44,6 +48,33 @@ const columns: GridColDef<User>[] = [
         },
         // width: 120
     },
+    {
+        field: 'action',
+        headerName: 'Action',
+        // width: 120,
+        sortable: false,
+        filterable: false,
+        headerAlign: 'center',
+        align: 'center',
+        renderCell: (param) => {
+           return (
+               <Stack direction={"row"} spacing={1}>
+                   <IconButton
+                       size={"small"}
+                       color={"primary"}
+               >
+                       <EditIcon fontSize={"small"}/>
+                   </IconButton>
+                   <IconButton
+                       size={"small"}
+                       color={"error"}
+                       >
+                       <DeleteIcon fontSize={"small"}/>
+                   </IconButton>
+               </Stack>
+           )
+        }
+    }
 ];
 
 
