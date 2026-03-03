@@ -17,7 +17,7 @@ export default function DashboardLayout({
 			</Link>
 			<Menu/>
 		</div>
-		<div className="w-5/6 md:w-11/12 lg:w-11/6 p-4 overflow-scroll">
+		<div className="w-5/6 md:w-11/12 lg:w-11/6 p-4 overflow-scroll bg-lamaSkyLight">
 			<Navbar/>
 			{children}
 		</div>
