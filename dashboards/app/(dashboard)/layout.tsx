@@ -20,7 +20,7 @@ export default function DashboardLayout({
                 flexDirection: 'row',
             }}>
                 <SideBar />
-                <Box sx={{mx: 'auto'}} >
+                <Box >
                     {children}
                 </Box>
 
