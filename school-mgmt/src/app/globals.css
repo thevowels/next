@@ -8,3 +8,9 @@
 	--color-lamaYellow: #fae27c;
 	--color-lamaYellowLight: #fefce8;
 }
+
+.react-calendar{
+	width: 100% !important;
+	border: none !important;
+	font-family: "Inter", sans-serif !important;
+}
