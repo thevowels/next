@@ -27,7 +27,7 @@ export default function Hero () {
       <div className='absolute top-20 left-4 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-blue500/10 rounded-full blur-3lx animate-pulse' />
       <div className='absolute bottom-20 right-4 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-blue500/10 rounded-full blur-3lx animate-pulse delay-1000' />
       <div className='max-w-7xl mx-auto text-center relative  w-full'>
-        <div className='max-w-7xl mx-auto flex flex-col lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center relative'>
+        <div className='max-w-7xl mx-auto flex flex-col lg:grid lg:grid-cols-2 text-center lg:text-left gap-6 sm:gap-8 lg:gap-12 items-center relative'>
           <div>
             <div
               className={
@@ -39,7 +39,7 @@ export default function Hero () {
                 Introducing CodeFlow AI
               </span>
             </div>
-            <h1 className='text-5xl sm:text-3xl md:tyext-4xl lg:text-5xl font-semibold mb-4 sm:mb-6 animate-in slide-in-from-bottom duration-700 delay-100'>
+            <h1 className='text-5xl sm:text-3xl md:tyext-4xl lg:text-5xl xl:text-6xl font-semibold mb-4 sm:mb-6 animate-in slide-in-from-bottom duration-700 delay-100'>
               <span className='bg-linear-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent block mb-1 sm:mb-2'>
                 Code Faster
               </span>
@@ -74,9 +74,9 @@ export default function Hero () {
               </button>
             </div>
           </div>
-          <div className='flex-1 relative order-2 w-full'>
+          <div className='relative order-2 w-full'>
             <div className='relative bg-white/5 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:mx-4 sm:p-4 shadow-2xl border border-white/10'>
-              <div className='bg-linear-to-br from-gray-900/20 to-gray-800/20 backdrop-blur-sm rounded-lg overflow-hidden h-[280px] sm:w-[350px] lg:h-[450px] border-white/5'>
+              <div className='bg-linear-to-br from-gray-900/20 to-gray-800/20 backdrop-blur-sm rounded-lg overflow-hidden h-[280px] sm:h-[350px] lg:h-[480px] border-white/5'>
                 {/* IDE HEADER */}
                 <div className='flex items-center justify-between  px-3 sm:px-4 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border-b border-white/10'>
                   <div className='flex space-x-2 items-center'>
@@ -129,7 +129,7 @@ export default function Hero () {
                       language='jsx'
                       style={nightOwl}
                       className={
-                        'm-0 text-xs rounded-xl leading-5 h-full border'
+                        'm-0 text-xs rounded-xl leading-5 h-full border text-left'
                       }
                     >
                       {codeExamples[activeTab]}
