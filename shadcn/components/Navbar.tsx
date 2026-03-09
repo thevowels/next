@@ -9,18 +9,17 @@ import {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
 import { SidebarTrigger } from "./ui/sidebar";
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
   return (
     <nav className="p-4 flex items-center justify-between">
       {/* LEFT  */}
-	  <SidebarTrigger/>
+	  <SidebarTrigger />
       {/* RIGHT */}
       <div className="flex items-center gap-4">
         <Link href="/">Dashboard</Link>
