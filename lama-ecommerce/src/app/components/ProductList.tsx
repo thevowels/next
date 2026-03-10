@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ProductType } from "../lib/types";
 import Categories from "./Categories";
 import ProductCard from "./ProductCard";
+import Link from "next/link";
 
 const dummyproducts: ProductType[] = [
   {
@@ -115,7 +116,7 @@ const dummyproducts: ProductType[] = [
   },
 ];
 
-export default function ProductList() {
+export default function ProductList({category}: {category: string}) {
     const [products, setProducts] = useState<ProductType[]>(dummyproducts);
     return (
         <div>
@@ -126,6 +127,8 @@ export default function ProductList() {
                 ))}
 
             </div>
+			<Link href={category ? `/products/?category=${category}` :"/products"} className="flex justify-end mt-4 underline text-sm text-gray-600">
+			View all Products</Link>
         </div>
     )
 }
