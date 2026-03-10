@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default function ShippingForm({
   setShippingForm,
 }: {
-  setShippingForm: (data: ShippingFormInputs) => void;
+  setShippingForm: (data: ShippingFormInputs | null) => void;
 }) {
   const {
     register,

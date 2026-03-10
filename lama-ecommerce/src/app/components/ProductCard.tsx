@@ -5,8 +5,22 @@ import { ProductType } from "../lib/types";
 import Image from "next/image";
 import { ShoppingCart } from "lucide-react";
 import { useState } from "react";
+import useCartStore from "../stores/cartStore";
+import { toast } from "react-toastify";
 
 export default function ProductCard({ product }: { product: ProductType }) {
+  const { addToCart } = useCartStore();
+
+  const handleatc = () => {
+    addToCart({
+      ...product,
+      selectedColor: productTypes.color,
+      selectedSize: productTypes.size,
+      quantity: 1,
+    });
+    toast.success("Product added to cart!", { draggable: true });
+  };
+
   const [productTypes, setProductTypes] = useState({
     size: product.sizes[0],
     color: product.colors[0],
@@ -48,15 +62,12 @@ export default function ProductCard({ product }: { product: ProductType }) {
               name="size"
               id="size"
               className="ring ring-gray-300 rounded-md px-2 py-1"
+              onChange={(e) =>
+                handleProductType({ type: "size", value: e.target.value })
+              }
             >
               {product.sizes.map((size) => (
-                <option
-                  value={size}
-                  key={size}
-                  onChange={(e) =>
-                    handleProductType({ type: "size", value: e.target.value })
-                  }
-                >
+                <option value={size} key={size}>
                   {size.toUpperCase()}
                 </option>
               ))}
@@ -69,10 +80,15 @@ export default function ProductCard({ product }: { product: ProductType }) {
               {product.colors.map((color) => (
                 <div
                   key={color}
-                  onClick={() =>
-                    handleProductType({ type: "color", value: color })
-                  }
-				  className={`cursor-pointer border-2 rounded-full p-[1.2px] ${productTypes.color === color ? "border-gray-500": "border-gray-300"}`}
+                  onClick={() => {
+                    handleProductType({ type: "color", value: color });
+                    console.log("Color:", color);
+                  }}
+                  className={`cursor-pointer border-2 rounded-full p-[1.2px] ${
+                    productTypes.color === color
+                      ? "border-gray-500"
+                      : "border-gray-300"
+                  }`}
                 >
                   <div
                     className="w-4 h-4 rounded-full"
@@ -86,7 +102,10 @@ export default function ProductCard({ product }: { product: ProductType }) {
         {/* Price and Add to Cart */}
         <div className="flex items-center justify-between">
           <p className="font-medium">${product.price.toFixed(2)}</p>
-          <button className="ring-1 ring-gray-200 hover:text-white hover:bg-slate-900 px-2 py-1 rounded-md shadow-lg text-sm cursor-pointer transition-all duration-100 flex items-center gap-2">
+          <button
+            onClick={handleatc}
+            className="ring-1 ring-gray-200 hover:text-white hover:bg-slate-900 px-2 py-1 rounded-md shadow-lg text-sm cursor-pointer transition-all duration-100 flex items-center gap-2"
+          >
             <ShoppingCart className="w-4 h-4" />
             Add to Cart
           </button>
