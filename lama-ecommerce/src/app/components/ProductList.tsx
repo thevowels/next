@@ -4,6 +4,7 @@ import { ProductType } from "../lib/types";
 import Categories from "./Categories";
 import ProductCard from "./ProductCard";
 import Link from "next/link";
+import Filter from "./Filter";
 
 const dummyproducts: ProductType[] = [
   {
@@ -116,11 +117,12 @@ const dummyproducts: ProductType[] = [
   },
 ];
 
-export default function ProductList({category}: {category: string}) {
+export default function ProductList({category, params}: {category: string, params: "homepage" | "products"}) {
     const [products, setProducts] = useState<ProductType[]>(dummyproducts);
     return (
         <div>
             <Categories/>
+			{params === "products" ? <Filter/>: null}
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-12">
                 {products.map((product) => (
                     <ProductCard key={product.id} product={product} />

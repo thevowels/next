@@ -17,3 +17,9 @@ export type CategoryType = {
     slug: string;
     icon: React.ReactNode;
 }
+
+export type CartItemType = ProductType & {
+	quantity: number,
+	selectedSize: string,
+	selectedColor: string,
+}
