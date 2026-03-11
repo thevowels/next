@@ -18,6 +18,15 @@ const product: ProductType = {
     green: "/products/1gr.png",
   },
 };
+
+export const generateMetadata = async ({params}:{params:{id:string}}) => {
+	// get product from db
+	return {
+		title: product.name,
+		description: product.description
+	}
+}
+
 export default async function ProductPage({
   params,
   searchParams,
