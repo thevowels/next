@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ProductInteractionProps, ProductType } from "../lib/types";
+import { ProductInteractionProps } from "../lib/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Minus, Plus, ShoppingCart } from "lucide-react";
 import useCartStore from "../stores/cartStore";
@@ -34,11 +34,6 @@ export default function ProductInteraction({
     type: "size" | "color";
     value: string;
   }) => {
-    // setProductTypes((prev) => ({
-    //   ...prev,
-    //   [type]: value,
-    // }));
-    // router.push();
     const params = new URLSearchParams(searchParams.toString());
     params.set(type, value);
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
