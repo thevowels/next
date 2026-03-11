@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { cookies } from "next/headers";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -50,12 +51,15 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           <TooltipProvider>
-            <SidebarProvider defaultOpen={defaultOpen}>
+            <SidebarProvider
+              defaultOpen={defaultOpen}
+            >
               <AppSidebar />
               <main className="w-full">
                 <Navbar />
                 <div className="px-4">{children}</div>
               </main>
+              <Toaster />
             </SidebarProvider>
           </TooltipProvider>
         </ThemeProvider>

@@ -27,6 +27,8 @@ import {
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import EditUser from "@/components/EditUser";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { AppLineChart } from "@/components/AppLineChart";
 
 export default function SingleUserPage() {
   return (
@@ -101,16 +103,14 @@ export default function SingleUserPage() {
           <div className="bg-primary-foreground p-4 rounded-lg">
             <div className="flex items-center justify-between">
               <h1 className="font-semibold text-xl "> User Information</h1>
-			  <Sheet>
-              <SheetTrigger asChild>
-                <Button>Edit User</Button>
-              </SheetTrigger>
-              <SheetContent>
-				<EditUser/>
-              </SheetContent>
-            </Sheet>
-
-
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button>Edit User</Button>
+                </SheetTrigger>
+                <SheetContent>
+                  <EditUser />
+                </SheetContent>
+              </Sheet>
             </div>
             <div className="space-y-4 mt-4">
               <div className="flex flex-col gap-2 mb-8">
@@ -155,8 +155,24 @@ export default function SingleUserPage() {
         </div>
         {/* RIGHT */}
         <div className="w-full xl:w-2/3 space-y-6">
-          <div className="bg-primary-foreground p-4 rounded-lg">UserCard</div>
-          <div className="bg-primary-foreground p-4 rounded-lg">Chart</div>
+          {/* User Cart Container */}
+          <div className="bg-primary-foreground p-4 rounded-lg">
+            <div className="flex items-center gap-4">
+              <Avatar className="size-12">
+                <AvatarImage src="https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=800" />
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+              <h1 className="text-xl font-semibold">John Doe</h1>
+            </div>
+            <p className="text-sm text-muted-foreground mt-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Repudiandae esse reprehenderit expedita, assumenda sunt eligendi
+              iusto, enim dolore tenetur veniam deleniti laboriosam, ut
+              recusandae debitis commodi porro laudantium error magnam!
+            </p>
+          </div>
+          <div className="bg-primary-foreground p-4 rounded-lg">
+			<AppLineChart/></div>
         </div>
       </div>
     </div>
